@@ -1,0 +1,79 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "title": "json-server",
+      "author": "alex"
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "profile": {
+    "fullname": "Oleksandr Karpenko",
+    "login": "alex",
+    "type": "admin"
+  },
+  "todos": [
+    {
+      "details": "New switch was already bought",
+      "title": "Fix switch in bathrom",
+      "id": 1,
+      "priority": 1,
+      "category": "home",
+      "completed": false
+    },
+    {
+      "id": 2,
+      "title": "Setup a Xmass tree!!!",
+      "details": "It is packed at balcony",
+      "priority": 2,
+      "category": "home",
+      "completed": true
+    },
+    {
+      "details": "A lot of boring work is waiting",
+      "title": "Plug SwiftLint to Street Genie",
+      "id": 3,
+      "priority": 3,
+      "category": "work",
+      "completed": true
+    },
+    {
+      "details": "left moving light is not working",
+      "title": "Get car to service",
+      "id": 4,
+      "priority": 2,
+      "category": "car",
+      "completed": false
+    },
+    {
+      "details": "It will be a challenge, yeah",
+      "title": "Find and Buy bumbers",
+      "id": 5,
+      "priority": 3,
+      "category": "car",
+      "completed": false
+    },
+    {
+      "id": 6,
+      "title": "Investigate MVVM for our projects",
+      "details": "",
+      "priority": 2,
+      "category": "work",
+      "completed": true
+    },
+    {
+      "id": 7,
+      "title": "go to cinema - star wars!",
+      "details": "",
+      "priority": 1,
+      "category": "home",
+      "completed": false
+    }
+  ]
+}

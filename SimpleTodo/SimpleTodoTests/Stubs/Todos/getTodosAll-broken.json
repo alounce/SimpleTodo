@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "details": "New switch was already bought",
+    "priority": 1,
+    "category": "home",
+    "completed": false
+  },
+  {
+    "title": "Setup a Xmass tree",
+    "details": "It is packed at balcony",
+    "priority": 1,
+    "category": "home",
+    "completed": false
+  }
+]

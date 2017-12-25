@@ -1,0 +1,58 @@
+[
+  {
+    "id": 1,
+    "title": "Fix switch in bathrom",
+    "details": "New switch was already bought",
+    "priority": 1,
+    "category": "home",
+    "completed": false
+  },
+  {
+    "id": 2,
+    "title": "Setup a Xmass tree",
+    "details": "It is packed at balcony",
+    "priority": 1,
+    "category": "home",
+    "completed": false
+  },
+  {
+    "id": 3,
+    "title": "Plug SwiftLint to Street Genie",
+    "details": "A lot of boring work is waiting",
+    "priority": 3,
+    "category": "work",
+    "completed": false
+  },
+  {
+    "id": 4,
+    "title": "Get car to service",
+    "details": "left moving light is not working",
+    "priority": 2,
+    "category": "car",
+    "completed": false
+  },
+  {
+    "id": 5,
+    "title": "Find and Buy bumbers",
+    "details": "It will be a challenge, yeah",
+    "priority": 3,
+    "category": "car",
+    "completed": false
+  },
+  {
+    "id": 6,
+    "title": "Investigate MVVM for our projects",
+    "details": "",
+    "priority": 2,
+    "category": "work",
+    "completed": true
+  },
+  {
+    "id": 7,
+    "title": "go to cinema - star wars!",
+    "details": "",
+    "priority": 1,
+    "category": "home",
+    "completed": false
+  }
+]
