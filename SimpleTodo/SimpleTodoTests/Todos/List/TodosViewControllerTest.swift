@@ -110,7 +110,6 @@ class TodosViewControllerTest: XCTestCase {
         subject.delete(todo)
     }
         
-    
     func test_tableView_editActionsForRowAt() {
         // simutate swipe on todo cell - for deleting
         let ip = IndexPath(row: 1, section: 0)

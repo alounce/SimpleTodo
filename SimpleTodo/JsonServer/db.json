@@ -68,9 +68,9 @@
       "completed": true
     },
     {
-      "id": 7,
-      "title": "go to cinema - star wars!",
       "details": "",
+      "title": "go to cinema - Star Wars are coming!",
+      "id": 7,
       "priority": 1,
       "category": "home",
       "completed": false

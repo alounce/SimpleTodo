@@ -10,7 +10,8 @@ import UIKit
 
 @testable import SimpleTodo
 
-/* Warning: this is a technique which is compormise between being pure and simple
+/* POI: Subclass to create Mock:
+ this is a technique which is compormise between being pure and simple
  For cases when we still don't want to completelly re-implement tested object
  but we don't want to invoke network layer it possible to subclass tested object to have "kinda" Mock
  

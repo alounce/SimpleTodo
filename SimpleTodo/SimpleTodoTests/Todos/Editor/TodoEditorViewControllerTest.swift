@@ -53,6 +53,8 @@ class TodoEditorViewControllerTest: XCTestCase {
         super.tearDown()
     }
     
+    /* POI: Test outlets and actions wiring
+     */
     func test_outlets() {
         _ = editor.view
 

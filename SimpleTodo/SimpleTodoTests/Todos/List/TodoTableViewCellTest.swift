@@ -10,6 +10,9 @@ import XCTest
 @testable import SimpleTodo
 
 class TodoTableViewCellTest: XCTestCase {
+    
+    /* POI: Using Mocks
+     */
     var todosVC: TodosViewController!
     var mockVM: MockTodosViewModel!
     
@@ -35,6 +38,8 @@ class TodoTableViewCellTest: XCTestCase {
         XCTAssertNotNil(cell.descriptionLabel)
         XCTAssertNotNil(cell.completedSwitch)
         XCTAssertNotNil(cell.priorityMarker)
+        /* BREAKING ATTEMPT #7: Test for not wiring outlets
+         */
         //XCTAssertNotNil(cell.notBoundControl)
     }
     

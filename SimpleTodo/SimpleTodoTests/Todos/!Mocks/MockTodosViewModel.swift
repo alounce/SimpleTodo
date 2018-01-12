@@ -9,6 +9,14 @@
 import UIKit
 @testable import SimpleTodo
 
+/* POI: Using protocols to create Mock:
+ this is a D - Dependency Inverion technique (SOLID)
+ which is prefferable way from design point of view (much cleaner and extensible)
+ It allows to create "pure" Mock, however it requires some boilerplate coding and can lead to overall complexity of the product. Use it with care. Try to keep things as Simple as it possible
+ 
+ Used in List/TodosViewController.swift
+ */
+
 class MockTodosViewModel: TodosViewModelProtocol {
 
     var downloadShouldFail = false

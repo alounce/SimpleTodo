@@ -209,12 +209,10 @@ class TodoTest: XCTestCase {
     
     //MARK: - network tests (using stubs)
     
-    /* IMPORTANT
-     Recomendation to use OHTTP stubs with jsonObjects
-     Reason: all code setup in the same test method, no need to navigate through files in project.
-     Tests become more isolated and maintainable
-     */
     
+    /* POI: keep it DRY
+     Use OHTTP stubs only for testing objects that is in charge for network communication
+     */
     func test_load() {
         
         // prepare stub
@@ -245,6 +243,9 @@ class TodoTest: XCTestCase {
         }
     }
     
+    /* POI: Test failed path
+     always try to test all path including unsuccessful
+     */
     func test_load_network_error() {
         // prepare stub
         let stubCondition: OHHTTPStubsTestBlock = { request -> Bool in
@@ -333,6 +334,11 @@ class TodoTest: XCTestCase {
             return apply
         }
         
+        
+        /* POI: Use OHTTP stubs with creaded in-place json dictionaries
+         Reason: all code setup in the same test method, no need to navigate through files in project.
+         Tests become more isolated and maintainable
+         */
         let stubResponse: OHHTTPStubsResponseBlock = { _ -> OHHTTPStubsResponse in
             var expectedJSON = subject.model.asJSON()
             // patch expected JSON with fake generated ID

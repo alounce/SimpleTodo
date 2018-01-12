@@ -8,6 +8,11 @@
 
 import Foundation
 
+protocol JSONConvertible {
+    init?(json: [String: Any])
+    func asJSON() -> [String: Any]
+}
+
 struct TodoModel: Codable {
     
     var id: Int
@@ -28,7 +33,7 @@ struct TodoModel: Codable {
 }
 
 // MARK: - serialization / deserialization for network layer
-extension TodoModel {
+extension TodoModel: JSONConvertible {
     init?(json: [String: Any]) {
         guard let id = json["id"] as? Int,
             let title = json["title"] as? String,

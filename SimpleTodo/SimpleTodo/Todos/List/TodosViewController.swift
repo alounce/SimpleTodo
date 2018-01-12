@@ -109,7 +109,9 @@ extension TodosViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        //OK: Sometimes force unwrap is useful. I don't want to workaround it
+        /* POI: Force unwrap can be useful!
+         We would not want to workaround it
+         */
         let cell = tableView.dequeueReusableCell(withIdentifier: "TodoListCell", for: indexPath) as! TodoTableViewCell
         let todo = viewModel.item(byIndexPath: indexPath)! /*as? Todo*/
         cell.delegate = self

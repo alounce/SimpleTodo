@@ -13,7 +13,9 @@ protocol TodoTableViewCellDelegate: NSObjectProtocol {
 }
 
 class TodoTableViewCell: UITableViewCell {
-    // just to show why do we need to test outlets
+    /* POI: Test outlets
+     just to show why do we need to test outlets
+     */
     @IBOutlet weak internal var notBoundControl: UIView!
     
     @IBOutlet weak internal var titleLabel: UILabel!

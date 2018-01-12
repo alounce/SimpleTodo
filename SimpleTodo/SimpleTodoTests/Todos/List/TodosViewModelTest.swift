@@ -112,7 +112,7 @@ class TodosViewModelTest: XCTestCase {
         XCTAssertNil(found)
     }
     
-    /* WARNING:
+    /* POI: Using ViewModel Mock
      Interesting case is here. instead of creating real ViewModel, we create Mock here
      In order to avoid invoking network layer
      It should be ennough for our purposes. We just need to be sure that ViewModel invokes Load data
