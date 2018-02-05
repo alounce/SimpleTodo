@@ -73,7 +73,7 @@ extension WebAPIClient: TargetType {
     }
     
     var headers: [String : String]? {
-        return ["Content-Type": "application/json"]
+        return WebAPIClient.contentTypeHeader
     }
     
     public var validate: Bool {
@@ -86,6 +86,10 @@ extension WebAPIClient: TargetType {
         default:
             return false
         }
+    }
+    
+    static var contentTypeHeader: [String: String] {
+        return ["Content-Type": "application/json"]
     }
 
     

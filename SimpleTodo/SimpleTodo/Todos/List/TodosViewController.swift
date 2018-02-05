@@ -21,18 +21,21 @@ class TodosViewController: UIViewController {
     @IBOutlet weak internal var tableView: UITableView!
     var viewModel: TodosViewModelProtocol = TodosViewModel()
     
+    private let refreshControl = UIRefreshControl()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         self.tableView.dataSource = self
         self.tableView.delegate = self
-        
+        self.tableView.refreshControl = refreshControl
+        refreshControl.addTarget(self, action: #selector(loadData(_:)), for: .valueChanged)
         self.loadData()
     }
     
     func loadData() {
         viewModel.download { (todos, error) in
+            self.refreshControl.endRefreshing()
             if let error = error {
                 print("Error: \(error)")
                 SCLAlertView().showError("Cannot load data", subTitle: error.localizedDescription)
@@ -145,7 +148,6 @@ extension TodosViewController: TodoTableViewCellDelegate {
             } else {
                 if let ip = self?.tableView.indexPath(for: cell) {
                     self?.tableView.reloadRows(at: [ip], with: UITableViewRowAnimation.automatic)
-                    print("reloaded cell")
                 }
             }
             
