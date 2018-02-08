@@ -19,9 +19,6 @@ struct TestEnvironmentStubInfo {
     
     static let kUseHttpStubs = "useHTTPStubs"
     static let kHttpStubHeader = "HTTPSTUB"
-    static let kGetMethod = "GET"
-    static let kPutMethod = "PUT"
-    static let kPostMethod = "POST"
     static let kSeparator = Character("|")
     
     let method: HTTPMethod

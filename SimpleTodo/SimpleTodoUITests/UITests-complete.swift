@@ -92,155 +92,200 @@ class UITestsComplete: XCTestCase {
         XCTAssertTrue(app.navigationBars["List"].exists)
         XCTAssertTrue(app.navigationBars["List"].buttons["Refresh"].exists)
         XCTAssertTrue(app.navigationBars["List"].buttons["Add"].exists)
+        
+        XCTContext.runActivity(named: "Gather Screenshots") { activity in
+            let screenshot = XCUIScreen.main.screenshot()
+            let attachment = XCTAttachment(screenshot: screenshot, quality: XCTAttachment.ImageQuality.original)
+            attachment.lifetime = .keepAlways
+            activity.add(attachment)
+        }
 
-        // Simulate Pull2Refresh
-        let start = firstCell.coordinate(withNormalizedOffset: CGVector(dx:0, dy:0))
-        let finish = firstCell.coordinate(withNormalizedOffset: CGVector(dx:0, dy:6))
-        start.press(forDuration: 0, thenDragTo: finish)
-
-
-        // Test Refresh button
-        app.navigationBars["List"].buttons["Refresh"].tap()
+        XCTContext.runActivity(named: "Test Refreshing Todos List") { activity in
+            // Simulate Pull2Refresh
+            let start = firstCell.coordinate(withNormalizedOffset: CGVector(dx:0, dy:0))
+            let finish = firstCell.coordinate(withNormalizedOffset: CGVector(dx:0, dy:6))
+            start.press(forDuration: 0, thenDragTo: finish)
+        
+            // Test Refresh button
+            app.navigationBars["List"].buttons["Refresh"].tap()
+        }
         // ---------------------------------------------------------------------
 
 
         // 2. Test adding new Todo Item ========================================
+        
         // Not Happy Path ------------------------------------------------------
-        app.navigationBars["List"].buttons["Add"].tap()
-        // Make sure that editor was pushed
-        XCTAssertTrue(app.navigationBars["New"].exists)
-        XCTAssertTrue(app.navigationBars["New"].buttons["Done"].exists)
-        XCTAssertTrue(app.navigationBars["New"].buttons["Cancel"].exists)
-        // Fill fields
-        app.textFields["TodoEditorTitleText"].typeText("Do Something Really Evil!")
-        app.textFields["TodoEditorDetailsText"].tap()
-        app.textFields["TodoEditorDetailsText"].typeText("I'll definitely need a Minion's Army!")
-        app.textFields["TodoEditorCategoryText"].tap()
-        app.textFields["TodoEditorCategoryText"].typeText("👹 Ha-Ha-Ha")
-        app.segmentedControls.buttons["Normal"].tap()
-        app.segmentedControls.buttons["Low"].tap()
-        app.segmentedControls.buttons["High"].tap()
-        // Cancel modification in the editor
-        app.navigationBars["New"].buttons["Cancel"].tap()
-        // Make sure we returned back to list controller
-        XCTAssertTrue(app.navigationBars["List"].exists)
-        XCTAssertTrue(app.navigationBars["List"].buttons["Refresh"].exists)
-        XCTAssertTrue(app.navigationBars["List"].buttons["Add"].exists)
-        // and make sure that new record does not appear
-        firstCell.swipeUp() // scroll down to last cell
-        XCTAssertFalse(app.tables.cells.staticTexts["Do Something Really Evil!"].exists)
-
+        XCTContext.runActivity(named: "Test Adding new Todo Item. Canceled") { activity in
+            app.navigationBars["List"].buttons["Add"].tap()
+            // Make sure that editor was pushed
+            XCTAssertTrue(app.navigationBars["New"].exists)
+            XCTAssertTrue(app.navigationBars["New"].buttons["Done"].exists)
+            XCTAssertTrue(app.navigationBars["New"].buttons["Cancel"].exists)
+            // Fill fields
+            app.textFields["TodoEditorTitleText"].typeText("Do Something Really Evil!")
+            app.textFields["TodoEditorDetailsText"].tap()
+            app.textFields["TodoEditorDetailsText"].typeText("I'll definitely need a Minion's Army!")
+            app.textFields["TodoEditorCategoryText"].tap()
+            app.textFields["TodoEditorCategoryText"].typeText("👹 Ha-Ha-Ha")
+            app.segmentedControls.buttons["Normal"].tap()
+            app.segmentedControls.buttons["Low"].tap()
+            app.segmentedControls.buttons["High"].tap()
+            // Cancel modification in the editor
+            app.navigationBars["New"].buttons["Cancel"].tap()
+            // Make sure we returned back to list controller
+            XCTAssertTrue(app.navigationBars["List"].exists)
+            XCTAssertTrue(app.navigationBars["List"].buttons["Refresh"].exists)
+            XCTAssertTrue(app.navigationBars["List"].buttons["Add"].exists)
+            // and make sure that new record does not appear
+            firstCell.swipeUp() // scroll down to last cell
+            XCTAssertFalse(app.tables.cells.staticTexts["Do Something Really Evil!"].exists)
+        }
+        
         // Happy Path ----------------------------------------------------------
-        app.navigationBars["List"].buttons["Add"].tap()
-        app.textFields["TodoEditorTitleText"].typeText("Do something really useful!")
-        app.textFields["TodoEditorDetailsText"].tap()
-        app.textFields["TodoEditorDetailsText"].typeText("And amazingly interesting!!!")
-        app.textFields["TodoEditorCategoryText"].tap()
-        app.textFields["TodoEditorCategoryText"].typeText("Challenging")
-        app.segmentedControls.buttons["Normal"].tap()
-        app.segmentedControls.buttons["High"].tap()
-        app.segmentedControls.buttons["Low"].tap()
-        // And now Confirm modificatios
-        app.navigationBars["New"].buttons["Done"].tap()
-
-        // Make sure we returned back to list controller
-        XCTAssertTrue(app.navigationBars["List"].exists)
-        XCTAssertTrue(app.navigationBars["List"].buttons["Refresh"].exists)
-        XCTAssertTrue(app.navigationBars["List"].buttons["Add"].exists)
-        // and make sure that new record APPEARS
-        firstCell.swipeUp() // scroll down to last cell
-        XCTAssertTrue(app.tables.cells.staticTexts["Do something really useful!"].exists)
+        XCTContext.runActivity(named: "Test Adding new Todo Item. Happy Path") { activity in
+            app.navigationBars["List"].buttons["Add"].tap()
+            app.textFields["TodoEditorTitleText"].typeText("Do something really useful!")
+            app.textFields["TodoEditorDetailsText"].tap()
+            app.textFields["TodoEditorDetailsText"].typeText("And amazingly interesting!!!")
+            app.textFields["TodoEditorCategoryText"].tap()
+            app.textFields["TodoEditorCategoryText"].typeText("Challenging")
+            app.segmentedControls.buttons["Normal"].tap()
+            app.segmentedControls.buttons["High"].tap()
+            app.segmentedControls.buttons["Low"].tap()
+            // And now Confirm modificatios
+            app.navigationBars["New"].buttons["Done"].tap()
+            
+            // Make sure we returned back to list controller
+            XCTAssertTrue(app.navigationBars["List"].exists)
+            XCTAssertTrue(app.navigationBars["List"].buttons["Refresh"].exists)
+            XCTAssertTrue(app.navigationBars["List"].buttons["Add"].exists)
+            // and make sure that new record APPEARS
+            firstCell.swipeUp() // scroll down to last cell
+            XCTAssertTrue(app.tables.cells.staticTexts["Do something really useful!"].exists)
+        }
         // 2. Test adding new Todo Item ========================================
 
 
         // 3. Test Editing Todo Item ===========================================
         // Not happy path ------------------------------------------------------
-        app.tables.cells.staticTexts["Do something really useful!"].tap()
-        // Make sure that editor was pushed
-        XCTAssertTrue(app.navigationBars["#8"].exists)
-        XCTAssertTrue(app.navigationBars["#8"].buttons["Done"].exists)
-        XCTAssertTrue(app.navigationBars["#8"].buttons["Cancel"].exists)
-        // Edit fields
-        app.textFields["TodoEditorTitleText"].typeText(" Abra - Shvabra - Kadabra")
-        app.textFields["TodoEditorDetailsText"].tap()
-        app.textFields["TodoEditorDetailsText"].typeText(" Alohomora")
-        app.textFields["TodoEditorCategoryText"].tap()
-        app.textFields["TodoEditorCategoryText"].typeText(" ???")
-        app.segmentedControls.buttons["Normal"].tap()
-        app.segmentedControls.buttons["Low"].tap()
-        app.segmentedControls.buttons["High"].tap()
-        // Cancel changes
-        app.navigationBars["#8"].buttons["Cancel"].tap()
-        // Make sure we returned back to the list view
-        XCTAssertTrue(app.navigationBars["List"].exists)
-        XCTAssertTrue(app.navigationBars["List"].buttons["Refresh"].exists)
-        XCTAssertTrue(app.navigationBars["List"].buttons["Add"].exists)
-        // and make sure that new record does not appear
-        firstCell.swipeUp() // scroll down to last cell
-        XCTAssertFalse(app.tables.cells.staticTexts["Do something really useful! Abra - Shvabra - Kadabra"].exists)
+        XCTContext.runActivity(named: "Test Editing Todo Item. Canceled") { _ in
+            app.tables.cells.staticTexts["Do something really useful!"].tap()
+            // Make sure that editor was pushed
+            XCTAssertTrue(app.navigationBars["#8"].exists)
+            XCTAssertTrue(app.navigationBars["#8"].buttons["Done"].exists)
+            XCTAssertTrue(app.navigationBars["#8"].buttons["Cancel"].exists)
+            // Edit fields
+            app.textFields["TodoEditorTitleText"].typeText(" Abra - Shvabra - Kadabra")
+            app.textFields["TodoEditorDetailsText"].tap()
+            app.textFields["TodoEditorDetailsText"].typeText(" Alohomora")
+            app.textFields["TodoEditorCategoryText"].tap()
+            app.textFields["TodoEditorCategoryText"].typeText(" ???")
+            app.segmentedControls.buttons["Normal"].tap()
+            app.segmentedControls.buttons["Low"].tap()
+            app.segmentedControls.buttons["High"].tap()
+            // Cancel changes
+            app.navigationBars["#8"].buttons["Cancel"].tap()
+            // Make sure we returned back to the list view
+            XCTAssertTrue(app.navigationBars["List"].exists)
+            XCTAssertTrue(app.navigationBars["List"].buttons["Refresh"].exists)
+            XCTAssertTrue(app.navigationBars["List"].buttons["Add"].exists)
+            // and make sure that new record does not appear
+            firstCell.swipeUp() // scroll down to last cell
+            XCTAssertFalse(app.tables.cells.staticTexts["Do something really useful! Abra - Shvabra - Kadabra"].exists)
+        }
 
         // Happy path ----------------------------------------------------------
-        app.tables.cells.staticTexts["Do something really useful!"].tap()
-        // Edit fields
-        app.textFields["TodoEditorTitleText"].typeText(" NOW")
-        app.textFields["TodoEditorDetailsText"].tap()
-        app.textFields["TodoEditorDetailsText"].typeText(" And Exciting!")
-        app.textFields["TodoEditorCategoryText"].tap()
-        app.textFields["TodoEditorCategoryText"].typeText(" and urgent")
-        app.segmentedControls.buttons["Low"].tap()
-        app.segmentedControls.buttons["High"].tap()
-        app.segmentedControls.buttons["Normal"].tap()
-        // Confirm update
-        app.navigationBars["#8"].buttons["Done"].tap()
-        // Make sure we returned back to list controller
-        XCTAssertTrue(app.navigationBars["List"].exists)
-        XCTAssertTrue(app.navigationBars["List"].buttons["Refresh"].exists)
-        XCTAssertTrue(app.navigationBars["List"].buttons["Add"].exists)
-        // and make sure that new record does not appear
-        firstCell.swipeUp() // scroll down to last cell
-        XCTAssertTrue(app.tables.cells.staticTexts["Do something really useful! NOW"].exists)
+        XCTContext.runActivity(named: "Test Editing Todo Item. Happy Path") { _ in
+            app.tables.cells.staticTexts["Do something really useful!"].tap()
+            // Edit fields
+            app.textFields["TodoEditorTitleText"].typeText(" NOW")
+            app.textFields["TodoEditorDetailsText"].tap()
+            app.textFields["TodoEditorDetailsText"].typeText(" And Exciting!")
+            app.textFields["TodoEditorCategoryText"].tap()
+            app.textFields["TodoEditorCategoryText"].typeText(" and urgent")
+            app.segmentedControls.buttons["Low"].tap()
+            app.segmentedControls.buttons["High"].tap()
+            app.segmentedControls.buttons["Normal"].tap()
+            // Confirm update
+            app.navigationBars["#8"].buttons["Done"].tap()
+            // Make sure we returned back to list controller
+            XCTAssertTrue(app.navigationBars["List"].exists)
+            XCTAssertTrue(app.navigationBars["List"].buttons["Refresh"].exists)
+            XCTAssertTrue(app.navigationBars["List"].buttons["Add"].exists)
+            // and make sure that new record does not appear
+            firstCell.swipeUp() // scroll down to last cell
+            XCTAssertTrue(app.tables.cells.staticTexts["Do something really useful! NOW"].exists)
+        }
         // 3. Test Editing Todo Item ===========================================
 
 
         // 4. Mark Todo As Done! ===============================================
-        app.tables.switches["Do something really useful! NOW, CHALLENGING and urgent"].tap()
+        XCTContext.runActivity(named: "Mark Todo As Done. Happy Path") { _ in
+            app.tables.switches["Do something really useful! NOW, CHALLENGING and urgent"].tap()
+        }
         // 4. Mark Todo As Done! ===============================================
 
 
         // 5. Delete Todo ======================================================
         // Not happy path ------------------------------------------------------
-        // make swipe to Left to reveal delete button
-        app.tables.cells.staticTexts["Do something really useful! NOW"].swipeLeft()
-        // make sure that Delete button exists
-        XCTAssertTrue(app.tables.cells.buttons["Delete"].exists)
-        // Tap on delete button
-        app.tables.cells.buttons["Delete"].tap()
-        // make sure that Confirmation Alert appears
-        XCTAssertTrue(app.otherElements["SCLAlertView"].exists)
-        // Tap Cancel on Confirmation alert
-        app.otherElements["SCLAlertView"].buttons["Cancel"].tap()
-        // make sure that we still can see row that we tried to delete
-        XCTAssertTrue(app.tables.cells.staticTexts["Do something really useful! NOW"].exists)
+        XCTContext.runActivity(named: "Delete Todo. Canceled") { _ in
+            // make swipe to Left to reveal delete button
+            app.tables.cells.staticTexts["Do something really useful! NOW"].swipeLeft()
+            // make sure that Delete button exists
+            XCTAssertTrue(app.tables.cells.buttons["Delete"].exists)
+            // Tap on delete button
+            app.tables.cells.buttons["Delete"].tap()
+            // make sure that Confirmation Alert appears
+            XCTAssertTrue(app.otherElements["SCLAlertView"].exists)
+            // Tap Cancel on Confirmation alert
+            app.otherElements["SCLAlertView"].buttons["Cancel"].tap()
+            // make sure that we still can see row that we tried to delete
+            XCTAssertTrue(app.tables.cells.staticTexts["Do something really useful! NOW"].exists)
+        }
 
         // Happy path ----------------------------------------------------------
-        app.tables.cells.staticTexts["Do something really useful! NOW"].swipeLeft()
-        app.tables.cells.buttons["Delete"].tap()
-        app.otherElements["SCLAlertView"].buttons["Delete"].tap()
-        // Make sure we returned back to list controller
-        XCTAssertTrue(app.navigationBars["List"].exists)
-        XCTAssertTrue(app.navigationBars["List"].buttons["Refresh"].exists)
-        XCTAssertTrue(app.navigationBars["List"].buttons["Add"].exists)
-        // make sure that we are unable to see deleted row
-        XCTAssertFalse(app.tables.cells.staticTexts["Do something really useful! NOW"].exists)
+        XCTContext.runActivity(named: "Delete Todo. Happy Path") { _ in
+            app.tables.cells.staticTexts["Do something really useful! NOW"].swipeLeft()
+            app.tables.cells.buttons["Delete"].tap()
+            app.otherElements["SCLAlertView"].buttons["Delete"].tap()
+            // Make sure we returned back to list controller
+            XCTAssertTrue(app.navigationBars["List"].exists)
+            XCTAssertTrue(app.navigationBars["List"].buttons["Refresh"].exists)
+            XCTAssertTrue(app.navigationBars["List"].buttons["Add"].exists)
+            // make sure that we are unable to see deleted row
+            XCTAssertFalse(app.tables.cells.staticTexts["Do something really useful! NOW"].exists)
+        }
         // 5. Delete Todo ======================================================
         
         // 6. Unsuccessful attempt to Delete Todo. Server returns an error =====
-        app.tables.cells.staticTexts["Get car to service"].swipeLeft()
-        app.tables.cells.buttons["Delete"].tap()
-        app.otherElements["SCLAlertView"].buttons["Delete"].tap()
-        XCTAssertTrue(app.otherElements["SCLAlertView"].exists)
-        XCTAssertTrue(app.otherElements["SCLAlertView"].buttons["Done"].exists)
-        app.otherElements["SCLAlertView"].buttons["Done"].tap()
+        XCTContext.runActivity(named: "Unsuccessful attempt to Delete Todo. Server returns an error") { _ in
+            app.tables.cells.staticTexts["Get car to service"].swipeLeft()
+            app.tables.cells.buttons["Delete"].tap()
+            app.otherElements["SCLAlertView"].buttons["Delete"].tap()
+            XCTAssertTrue(app.otherElements["SCLAlertView"].exists)
+            XCTAssertTrue(app.otherElements["SCLAlertView"].buttons["Done"].exists)
+            app.otherElements["SCLAlertView"].buttons["Done"].tap()
+        }
         // 6. Unsuccessful attempt to Delete Todo. Server returns an error =====
     }
+    
+//    func testCusotmOne() {
+//        
+//        let app = XCUIApplication()
+//        let cell = app.tables.cells.element(boundBy: 0)
+//        cell.swipeLeft()
+//        app.buttons["Delete"].tap()
+//         app.otherElements["SCLAlertView"].buttons["Delete"].tap()
+//         XCTAssertFalse(cell.exists)
+//        let getCarToServiceCarSwitch = app.tables/*@START_MENU_TOKEN@*/.cells.switches["Get car to service, car"]/*[[".cells.switches[\"Get car to service, car\"]",".switches[\"Get car to service, car\"]"],[[[-1,1],[-1,0]]],[1]]@END_MENU_TOKEN@*/
+//        let v = getCarToServiceCarSwitch.value as? Int
+//        XCTAssertEqual(v, 0)
+//        getCarToServiceCarSwitch/*@START_MENU_TOKEN@*/.press(forDuration: 0.6);/*[[".tap()",".press(forDuration: 0.6);"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/
+//        let v2 = getCarToServiceCarSwitch.value as? Int
+//        XCTAssertEqual(v2, 1)
+//        getCarToServiceCarSwitch.tap()
+//
+//        
+//    }
+    
 }
