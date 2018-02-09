@@ -29,10 +29,15 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aep-ce-v6t">
-                                                    <rect key="frame" x="0.0" y="0.0" width="10" height="43.5"/>
+                                                    <rect key="frame" x="2" y="4.5" width="5" height="35"/>
                                                     <color key="backgroundColor" red="0.20000000000000001" green="1" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <accessibility key="accessibilityConfiguration" identifier="marker">
+                                                        <accessibilityTraits key="traits" button="YES" notEnabled="YES"/>
+                                                        <bool key="isElement" value="YES"/>
+                                                    </accessibility>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="10" id="PxS-bj-cnB"/>
+                                                        <constraint firstAttribute="width" constant="5" id="CNs-q0-wHQ"/>
+                                                        <constraint firstAttribute="height" constant="35" id="RIH-Ip-lsu"/>
                                                     </constraints>
                                                 </view>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vXX-ix-tgb">
@@ -55,17 +60,16 @@
                                                 </switch>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="aep-ce-v6t" firstAttribute="top" secondItem="Vhk-Mq-v1b" secondAttribute="top" id="999-Px-WGO"/>
-                                                <constraint firstItem="vXX-ix-tgb" firstAttribute="leading" secondItem="aep-ce-v6t" secondAttribute="trailing" constant="5" id="ApX-52-sy7"/>
+                                                <constraint firstItem="aep-ce-v6t" firstAttribute="leading" secondItem="Vhk-Mq-v1b" secondAttribute="leading" constant="2" id="3KH-Ft-bQC"/>
+                                                <constraint firstItem="osa-Zc-xpF" firstAttribute="leading" secondItem="Vhk-Mq-v1b" secondAttribute="leading" constant="15" id="6gd-df-2Jb"/>
                                                 <constraint firstAttribute="bottom" secondItem="osa-Zc-xpF" secondAttribute="bottom" constant="2" id="Hwe-5N-u3d"/>
-                                                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="vXX-ix-tgb" secondAttribute="trailing" constant="20" symbolic="YES" id="Ot3-Rz-2BP"/>
+                                                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="osa-Zc-xpF" secondAttribute="trailing" constant="20" symbolic="YES" id="LE5-pK-nNu"/>
+                                                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="vXX-ix-tgb" secondAttribute="trailing" constant="20" symbolic="YES" id="NNz-B7-0Ie"/>
+                                                <constraint firstItem="aep-ce-v6t" firstAttribute="centerY" secondItem="Vhk-Mq-v1b" secondAttribute="centerY" id="YKY-JP-V8e"/>
+                                                <constraint firstItem="vXX-ix-tgb" firstAttribute="leading" secondItem="Vhk-Mq-v1b" secondAttribute="leading" constant="15" id="YQa-dt-tDA"/>
                                                 <constraint firstAttribute="trailing" secondItem="UKv-fr-0cg" secondAttribute="trailing" constant="20" symbolic="YES" id="ckA-bG-Mo6"/>
                                                 <constraint firstItem="vXX-ix-tgb" firstAttribute="centerY" secondItem="Vhk-Mq-v1b" secondAttribute="centerY" constant="-10" id="cyw-52-j5T"/>
-                                                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="osa-Zc-xpF" secondAttribute="trailing" constant="20" symbolic="YES" id="gV9-S9-EFJ"/>
-                                                <constraint firstItem="osa-Zc-xpF" firstAttribute="leading" secondItem="aep-ce-v6t" secondAttribute="trailing" constant="5" id="iLz-N9-WPK"/>
                                                 <constraint firstItem="UKv-fr-0cg" firstAttribute="centerY" secondItem="Vhk-Mq-v1b" secondAttribute="centerY" id="rOw-yD-uZB"/>
-                                                <constraint firstAttribute="bottom" secondItem="aep-ce-v6t" secondAttribute="bottom" id="t4k-ft-42S"/>
-                                                <constraint firstItem="aep-ce-v6t" firstAttribute="leading" secondItem="Vhk-Mq-v1b" secondAttribute="leading" id="vow-ga-9Qs"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>

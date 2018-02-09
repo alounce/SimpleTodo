@@ -269,23 +269,5 @@ class UITestsComplete: XCTestCase {
         // 6. Unsuccessful attempt to Delete Todo. Server returns an error =====
     }
     
-//    func testCusotmOne() {
-//        
-//        let app = XCUIApplication()
-//        let cell = app.tables.cells.element(boundBy: 0)
-//        cell.swipeLeft()
-//        app.buttons["Delete"].tap()
-//         app.otherElements["SCLAlertView"].buttons["Delete"].tap()
-//         XCTAssertFalse(cell.exists)
-//        let getCarToServiceCarSwitch = app.tables/*@START_MENU_TOKEN@*/.cells.switches["Get car to service, car"]/*[[".cells.switches[\"Get car to service, car\"]",".switches[\"Get car to service, car\"]"],[[[-1,1],[-1,0]]],[1]]@END_MENU_TOKEN@*/
-//        let v = getCarToServiceCarSwitch.value as? Int
-//        XCTAssertEqual(v, 0)
-//        getCarToServiceCarSwitch/*@START_MENU_TOKEN@*/.press(forDuration: 0.6);/*[[".tap()",".press(forDuration: 0.6);"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/
-//        let v2 = getCarToServiceCarSwitch.value as? Int
-//        XCTAssertEqual(v2, 1)
-//        getCarToServiceCarSwitch.tap()
-//
-//        
-//    }
     
 }

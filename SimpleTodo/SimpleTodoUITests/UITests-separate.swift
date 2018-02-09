@@ -41,7 +41,7 @@ class SimpleTodoUITests: XCTestCase {
         
         //----- (C)reate -------------------------------------------------------
         let createStub = TestEnvironmentStubInfo( method: .create,
-                                                 path: "/api/todos/",
+                                                 path: "/api/todos",
                                                  statusCode: 200,
                                                  json: newTodoJSON)
         app.launchEnvironment[createStub.key] = createStub.value
@@ -76,50 +76,79 @@ class SimpleTodoUITests: XCTestCase {
         super.tearDown()
     }
     
-    func testDelete() {
+    func testAddTodoThenCancel() {
         let app = XCUIApplication()
-        let tablesQuery = app.tables
         
-        // make sure that Delete button is not visible in normal mode
-        XCTAssertFalse(tablesQuery.buttons["Delete"].exists)
+        //Tap at Add Todo button
+        app.navigationBars["List"].buttons["Add"].tap()
         
-        // make swipe to Left to reveal delete button
-        tablesQuery.cells.staticTexts["Plug SwiftLint to Street Genie"].swipeLeft()
+        // Make sure that editor was pushed
+        let navigationBar = app.navigationBars["New"]
+        XCTAssertTrue(navigationBar.exists)
+        XCTAssertTrue(navigationBar.buttons["Done"].exists)
+        XCTAssertTrue(navigationBar.buttons["Cancel"].exists)
         
-        // make sure that Delete button exists
-        XCTAssertTrue(tablesQuery.buttons["Delete"].exists)
+        // Fill the Title
+        app.textFields["TodoEditorTitleText"].typeText("Do something really evil!")
         
-        // perform click on it
-        tablesQuery.buttons["Delete"].tap()
+        // Fill the Details field
+        let todoeditordetailstextTextField = app.textFields["TodoEditorDetailsText"]
+        todoeditordetailstextTextField.tap()
+        todoeditordetailstextTextField.tap()
+        todoeditordetailstextTextField.typeText("I'll definitely need the Minion's Army!")
         
+        // Fill the Category field
+        let todoeditorcategorytextTextField = app.textFields["TodoEditorCategoryText"]
+        todoeditorcategorytextTextField.tap()
+        todoeditorcategorytextTextField.typeText("👹 Ha-Ha-Ha")
         
-        // tap on Cancel button in the Alert
-        XCTAssertTrue(app.otherElements["SCLAlertView"].exists)
-        app.otherElements["SCLAlertView"].buttons["Cancel"].tap()
+        app.segmentedControls.buttons["Normal"].tap()
+        app.segmentedControls.buttons["High"].tap()
+        app.segmentedControls.buttons["Low"].tap()
         
-        // make sure that we still can see row that we tried to delete
-        XCTAssertTrue(tablesQuery.cells.staticTexts["Plug SwiftLint to Street Genie"].exists)
+        navigationBar.buttons["Cancel"].tap()
+        XCTAssertFalse(app.tables.cells.staticTexts["Do something really evil!"].exists)
         
-        // repeat the same but now confirm on delete
-        tablesQuery.cells.staticTexts["Plug SwiftLint to Street Genie"].swipeLeft()
-        tablesQuery.buttons["Delete"].tap()
-        app.otherElements["SCLAlertView"].buttons["Delete"].tap()
+    }
+    
+    func testAddTodoThenConfirm() {
+        let app = XCUIApplication()
         
-        // make sure that we cannot see row anymore
-        XCTAssertFalse(tablesQuery.cells.staticTexts["Plug SwiftLint to Street Genie"].exists)
+        //Tap at Add Todo button
+        app.navigationBars["List"].buttons["Add"].tap()
         
-        // Now hit refresh button, since we are using stubs deleted row appeaers again
-        //app.navigationBars["SimpleTodo.TodosView"].buttons["Refresh"].tap()
+        // Make sure that editor was pushed
+        let navigationBar = app.navigationBars["New"]
+        XCTAssertTrue(navigationBar.exists)
+        XCTAssertTrue(navigationBar.buttons["Done"].exists)
+        XCTAssertTrue(navigationBar.buttons["Cancel"].exists)
         
-        // or make pull 2 refresh action
+        // Fill the Title
+        app.textFields["TodoEditorTitleText"].typeText("Do something really useful!")
+        
+        // Fill the Details field
+        let todoeditordetailstextTextField = app.textFields["TodoEditorDetailsText"]
+        todoeditordetailstextTextField.tap()
+        todoeditordetailstextTextField.tap()
+        todoeditordetailstextTextField.typeText("And amazingly interesting!!!")
+        
+        // Fill the Category field
+        let todoeditorcategorytextTextField = app.textFields["TodoEditorCategoryText"]
+        todoeditorcategorytextTextField.tap()
+        todoeditorcategorytextTextField.typeText("CHALLENGING")
+        
+        app.segmentedControls.buttons["Low"].tap()
+        app.segmentedControls.buttons["Normal"].tap()
+        app.segmentedControls.buttons["High"].tap()
+        
+        navigationBar.buttons["Done"].tap()
         let table = app.tables.element(boundBy: 0)
         let firstCell = table.cells.element(boundBy: 0)
-        let start = firstCell.coordinate(withNormalizedOffset: CGVector(dx:0, dy:0))
-        let finish = firstCell.coordinate(withNormalizedOffset: CGVector(dx:0, dy:6))
-            start.press(forDuration: 0, thenDragTo: finish)
-            
-        XCTAssertTrue(tablesQuery.cells.staticTexts["Plug SwiftLint to Street Genie"].exists)
+        firstCell.swipeUp()
+        
+        XCTAssertTrue(app.tables.cells.staticTexts["Do something really useful!"].exists)
     }
+    
     
     func testEditTodoThenCancel() {
         
@@ -188,77 +217,52 @@ class SimpleTodoUITests: XCTestCase {
         XCTAssertTrue(app.tables.cells.staticTexts["Get car to service. IMMEDIATELLY"].exists)
     }
     
-    func testAddTodoThenCancel() {
-        let app = XCUIApplication()
-        
-        //Tap at Add Todo button
-        app.navigationBars["SimpleTodo.TodosView"].buttons["Add"].tap()
-        
-        // Make sure that editor was pushed
-        let navigationBar = app.navigationBars["New"]
-        XCTAssertTrue(navigationBar.exists)
-        XCTAssertTrue(navigationBar.buttons["Done"].exists)
-        XCTAssertTrue(navigationBar.buttons["Cancel"].exists)
-        
-        // Fill the Title
-        app.textFields["TodoEditorTitleText"].typeText("Do something really evil!")
-        
-        // Fill the Details field
-        let todoeditordetailstextTextField = app.textFields["TodoEditorDetailsText"]
-        todoeditordetailstextTextField.tap()
-        todoeditordetailstextTextField.tap()
-        todoeditordetailstextTextField.typeText("I'll definitely need the Minion's Army!")
-        
-        // Fill the Category field
-        let todoeditorcategorytextTextField = app.textFields["TodoEditorCategoryText"]
-        todoeditorcategorytextTextField.tap()
-        todoeditorcategorytextTextField.typeText("👹 Ha-Ha-Ha")
-        
-        app.segmentedControls.buttons["Normal"].tap()
-        app.segmentedControls.buttons["High"].tap()
-        app.segmentedControls.buttons["Low"].tap()
+
     
-        navigationBar.buttons["Cancel"].tap()
-        XCTAssertFalse(app.tables.cells.staticTexts["Do something really evil!"].exists)
-        
-    }
-    
-    func testAddTodoThenConfirm() {
+    func testDelete() {
         let app = XCUIApplication()
+        let tablesQuery = app.tables
         
-        //Tap at Add Todo button
-        app.navigationBars["SimpleTodo.TodosView"].buttons["Add"].tap()
+        // make sure that Delete button is not visible in normal mode
+        XCTAssertFalse(tablesQuery.buttons["Delete"].exists)
         
-        // Make sure that editor was pushed
-        let navigationBar = app.navigationBars["New"]
-        XCTAssertTrue(navigationBar.exists)
-        XCTAssertTrue(navigationBar.buttons["Done"].exists)
-        XCTAssertTrue(navigationBar.buttons["Cancel"].exists)
+        // make swipe to Left to reveal delete button
+        tablesQuery.cells.staticTexts["Plug SwiftLint to Street Genie"].swipeLeft()
         
-        // Fill the Title
-        app.textFields["TodoEditorTitleText"].typeText("Do something really useful!")
+        // make sure that Delete button exists
+        XCTAssertTrue(tablesQuery.buttons["Delete"].exists)
         
-        // Fill the Details field
-        let todoeditordetailstextTextField = app.textFields["TodoEditorDetailsText"]
-        todoeditordetailstextTextField.tap()
-        todoeditordetailstextTextField.tap()
-        todoeditordetailstextTextField.typeText("And amazingly interesting!!!")
+        // perform click on it
+        tablesQuery.buttons["Delete"].tap()
         
-        // Fill the Category field
-        let todoeditorcategorytextTextField = app.textFields["TodoEditorCategoryText"]
-        todoeditorcategorytextTextField.tap()
-        todoeditorcategorytextTextField.typeText("CHALLENGING")
         
-        app.segmentedControls.buttons["Low"].tap()
-        app.segmentedControls.buttons["Normal"].tap()
-        app.segmentedControls.buttons["High"].tap()
+        // tap on Cancel button in the Alert
+        XCTAssertTrue(app.otherElements["SCLAlertView"].exists)
+        app.otherElements["SCLAlertView"].buttons["Cancel"].tap()
         
-        navigationBar.buttons["Done"].tap()
+        // make sure that we still can see row that we tried to delete
+        XCTAssertTrue(tablesQuery.cells.staticTexts["Plug SwiftLint to Street Genie"].exists)
+        
+        // repeat the same but now confirm on delete
+        tablesQuery.cells.staticTexts["Plug SwiftLint to Street Genie"].swipeLeft()
+        tablesQuery.buttons["Delete"].tap()
+        app.otherElements["SCLAlertView"].buttons["Delete"].tap()
+        
+        // make sure that we cannot see row anymore
+        XCTAssertFalse(tablesQuery.cells.staticTexts["Plug SwiftLint to Street Genie"].exists)
+        
+        // Now hit refresh button, since we are using stubs deleted row appeaers again
+        //app.navigationBars["List"].buttons["Refresh"].tap()
+        
+        // or make pull 2 refresh action
         let table = app.tables.element(boundBy: 0)
         let firstCell = table.cells.element(boundBy: 0)
-        firstCell.swipeUp()
-
-        XCTAssertTrue(app.tables.cells.staticTexts["Do something really useful!"].exists)
+        let start = firstCell.coordinate(withNormalizedOffset: CGVector(dx:0, dy:0))
+        let finish = firstCell.coordinate(withNormalizedOffset: CGVector(dx:0, dy:6))
+            start.press(forDuration: 0, thenDragTo: finish)
+            
+        XCTAssertTrue(tablesQuery.cells.staticTexts["Plug SwiftLint to Street Genie"].exists)
     }
+ 
     
 }

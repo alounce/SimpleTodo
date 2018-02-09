@@ -13,7 +13,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+    func application(_ application: UIApplication,
+        didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
         if ProcessInfo.processInfo.arguments.contains(TestEnvironmentStubInfo.kUseHttpStubs) {
@@ -29,7 +30,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         print("--------------------------------")
         for (key, value) in environment {
             guard TestEnvironmentStubInfo.isStubInfo(key),
-                let stubInfo = TestEnvironmentStubInfo(environmentKey: key, value: value) else { continue }
+                let stubInfo = TestEnvironmentStubInfo(environmentKey: key, value: value)
+                else {
+                    continue
+            }
             
             stub(withTestEnvironmentInfo:stubInfo)
             print("STUB: \(stubInfo.description)")
