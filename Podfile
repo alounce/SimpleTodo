@@ -1,26 +1,24 @@
 platform :ios, '11.0'
 
-target 'SimpleTodo' do
-  # Comment the next line if you're not using Swift and don't want to use dynamic frameworks
+# Pods for SimpleTodo
+def appPods
   use_frameworks!
-
-  # Pods for SimpleTodo
   pod 'Moya'
   pod 'Alamofire'
   pod 'SCLAlertView', :git => 'https://github.com/vikmeup/SCLAlertView-Swift.git'
-  # Pods for testing
   pod 'OHHTTPStubs/Swift'
+end
 
+target 'SimpleTodo' do
+  appPods
   target 'SimpleTodoTests' do
     inherit! :search_paths
-    # Pods for testing
-    pod 'OHHTTPStubs/Swift'
+    appPods
   end
   
   target 'SimpleTodoUITests' do
       inherit! :search_paths
-      # Pods for testing
-      pod 'OHHTTPStubs/Swift'
+      appPods
   end
 
 # Disable Code Coverage for Pods projects

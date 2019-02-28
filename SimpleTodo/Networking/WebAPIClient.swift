@@ -76,18 +76,6 @@ extension WebAPIClient: TargetType {
         return WebAPIClient.contentTypeHeader
     }
     
-    public var validate: Bool {
-        switch self {
-//        case .getTodos:
-//            return true
-//            
-//        case .completeTodo:
-//            return true
-        default:
-            return false
-        }
-    }
-    
     static var contentTypeHeader: [String: String] {
         return ["Content-Type": "application/json"]
     }

@@ -1,10 +1,10 @@
 PODS:
-  - Alamofire (4.6.0)
-  - Moya (10.0.1):
-    - Moya/Core (= 10.0.1)
-  - Moya/Core (10.0.1):
+  - Alamofire (4.8.1)
+  - Moya (12.0.1):
+    - Moya/Core (= 12.0.1)
+  - Moya/Core (12.0.1):
     - Alamofire (~> 4.1)
-    - Result (~> 3.0)
+    - Result (~> 4.0)
   - OHHTTPStubs/Core (6.1.0)
   - OHHTTPStubs/Default (6.1.0):
     - OHHTTPStubs/Core
@@ -18,8 +18,8 @@ PODS:
   - OHHTTPStubs/OHPathHelpers (6.1.0)
   - OHHTTPStubs/Swift (6.1.0):
     - OHHTTPStubs/Default
-  - Result (3.2.4)
-  - SCLAlertView (0.7.0)
+  - Result (4.1.0)
+  - SCLAlertView (0.8.1)
 
 DEPENDENCIES:
   - Alamofire
@@ -27,22 +27,29 @@ DEPENDENCIES:
   - OHHTTPStubs/Swift
   - SCLAlertView (from `https://github.com/vikmeup/SCLAlertView-Swift.git`)
 
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - Alamofire
+    - Moya
+    - OHHTTPStubs
+    - Result
+
 EXTERNAL SOURCES:
   SCLAlertView:
     :git: https://github.com/vikmeup/SCLAlertView-Swift.git
 
 CHECKOUT OPTIONS:
   SCLAlertView:
-    :commit: 85329ce66c297bea79ddef92908ff2040174ccf9
+    :commit: 86ea7613c99cd4896765fabfa773b39b40bc8590
     :git: https://github.com/vikmeup/SCLAlertView-Swift.git
 
 SPEC CHECKSUMS:
-  Alamofire: f41a599bd63041760b26d393ec1069d9d7b917f4
-  Moya: 9e621707ff754eeb51ff3ec51a3d54e517c0733a
+  Alamofire: 16ce2c353fb72865124ddae8a57c5942388f4f11
+  Moya: cf730b3cd9e005401ef37a85143aa141a12fd38f
   OHHTTPStubs: 1e21c7d2c084b8153fc53d48400d8919d2d432d0
-  Result: d2d07204ce72856f1fd9130bbe42c35a7b0fea10
-  SCLAlertView: 8a14ffc40590c619e183eed2298b854385f30be1
+  Result: bd966fac789cc6c1563440b348ab2598cc24d5c7
+  SCLAlertView: 9fea8ac145c0bd4989ef6abe1d3859b48f458986
 
-PODFILE CHECKSUM: 6c40382954c66ff247540a8b1c7dd1ebaf81ef76
+PODFILE CHECKSUM: 5ee5690da8cdc47402699c7478d810d8bf601d6a
 
-COCOAPODS: 1.4.0
+COCOAPODS: 1.6.1

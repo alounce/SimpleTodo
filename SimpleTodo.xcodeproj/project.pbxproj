@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0F1A96E6028675210A99638A /* Pods_SimpleTodo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE98F2B9E8C59FD4D6CC63CD /* Pods_SimpleTodo.framework */; };
 		119F40161FF0D39C00C90E4E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 119F40151FF0D39C00C90E4E /* AppDelegate.swift */; };
 		119F40181FF0D39C00C90E4E /* TodosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 119F40171FF0D39C00C90E4E /* TodosViewController.swift */; };
 		119F401B1FF0D39C00C90E4E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 119F40191FF0D39C00C90E4E /* Main.storyboard */; };
@@ -37,9 +38,8 @@
 		11F385B01FFE51B100F43681 /* TodoTableViewCellTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11F385AF1FFE51B100F43681 /* TodoTableViewCellTest.swift */; };
 		11F385B31FFE71FC00F43681 /* TodoEditorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11F385B21FFE71FC00F43681 /* TodoEditorViewController.swift */; };
 		11FC664B2004FF0400594264 /* WebAPIClientTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11FC664A2004FF0400594264 /* WebAPIClientTest.swift */; };
-		2F411BB7C5CA10F16F30DB70 /* Pods_SimpleTodoTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 29B3ECD31D0B504B4B08058C /* Pods_SimpleTodoTests.framework */; };
-		7E2F682D64AEA0BB4F60F4DB /* Pods_SimpleTodoUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D8DD18914493C00BB79F639 /* Pods_SimpleTodoUITests.framework */; };
-		A158D5E80784B0E1DF4D88F3 /* Pods_SimpleTodo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F3E2D6006079ED97998EE816 /* Pods_SimpleTodo.framework */; };
+		3A741B3BD527B0F3EC505A49 /* Pods_SimpleTodoUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F938B044FF9A7D644255BEE /* Pods_SimpleTodoUITests.framework */; };
+		CAA436F43B161E89CD9CAFFC /* Pods_SimpleTodoTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3530B1E28589EFF462512DDC /* Pods_SimpleTodoTests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,20 +60,19 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		11336156201DE6A7001FAEA3 /* CopyFiles */ = {
+		11336156201DE6A7001FAEA3 /* Copy Files */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 16;
 			files = (
 			);
+			name = "Copy Files";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		03A87A4254A3E3F8222DAD27 /* Pods-SimpleTodo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SimpleTodo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SimpleTodo/Pods-SimpleTodo.debug.xcconfig"; sourceTree = "<group>"; };
-		04DA429525F3EAE9F8D59CC7 /* Pods-SimpleTodoUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SimpleTodoUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SimpleTodoUITests/Pods-SimpleTodoUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		119F40121FF0D39C00C90E4E /* SimpleTodo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SimpleTodo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		119F40151FF0D39C00C90E4E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		119F40171FF0D39C00C90E4E /* TodosViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodosViewController.swift; sourceTree = "<group>"; };
@@ -113,13 +112,15 @@
 		11F385B21FFE71FC00F43681 /* TodoEditorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoEditorViewController.swift; sourceTree = "<group>"; };
 		11FC664A2004FF0400594264 /* WebAPIClientTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebAPIClientTest.swift; sourceTree = "<group>"; };
 		11FC664C20051A9F00594264 /* TodoEditorViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoEditorViewModel.swift; sourceTree = "<group>"; };
-		29B3ECD31D0B504B4B08058C /* Pods_SimpleTodoTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SimpleTodoTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		2DEF81330C42A304FD27985F /* Pods-SimpleTodoTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SimpleTodoTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SimpleTodoTests/Pods-SimpleTodoTests.debug.xcconfig"; sourceTree = "<group>"; };
-		5FE334C52880C7499B364ED3 /* Pods-SimpleTodo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SimpleTodo.release.xcconfig"; path = "Pods/Target Support Files/Pods-SimpleTodo/Pods-SimpleTodo.release.xcconfig"; sourceTree = "<group>"; };
-		8EA8D53869F4CC2D356537A2 /* Pods-SimpleTodoUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SimpleTodoUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-SimpleTodoUITests/Pods-SimpleTodoUITests.release.xcconfig"; sourceTree = "<group>"; };
-		9D8DD18914493C00BB79F639 /* Pods_SimpleTodoUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SimpleTodoUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		F3E2D6006079ED97998EE816 /* Pods_SimpleTodo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SimpleTodo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		FDB175609CB74A54C9B4B6C8 /* Pods-SimpleTodoTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SimpleTodoTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-SimpleTodoTests/Pods-SimpleTodoTests.release.xcconfig"; sourceTree = "<group>"; };
+		2D922F34B3FC69FD969A72D8 /* Pods-SimpleTodo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SimpleTodo.debug.xcconfig"; path = "Target Support Files/Pods-SimpleTodo/Pods-SimpleTodo.debug.xcconfig"; sourceTree = "<group>"; };
+		3530B1E28589EFF462512DDC /* Pods_SimpleTodoTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SimpleTodoTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3E0DCD257F8AC736F7F95623 /* Pods-SimpleTodoUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SimpleTodoUITests.release.xcconfig"; path = "Target Support Files/Pods-SimpleTodoUITests/Pods-SimpleTodoUITests.release.xcconfig"; sourceTree = "<group>"; };
+		7749C8F094C9FC7D59F2F03A /* Pods-SimpleTodoTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SimpleTodoTests.release.xcconfig"; path = "Target Support Files/Pods-SimpleTodoTests/Pods-SimpleTodoTests.release.xcconfig"; sourceTree = "<group>"; };
+		8F938B044FF9A7D644255BEE /* Pods_SimpleTodoUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SimpleTodoUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A45141CFC61C3207D029A09F /* Pods-SimpleTodoTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SimpleTodoTests.debug.xcconfig"; path = "Target Support Files/Pods-SimpleTodoTests/Pods-SimpleTodoTests.debug.xcconfig"; sourceTree = "<group>"; };
+		DAA100A8727EF81D7C6C0FCB /* Pods-SimpleTodo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SimpleTodo.release.xcconfig"; path = "Target Support Files/Pods-SimpleTodo/Pods-SimpleTodo.release.xcconfig"; sourceTree = "<group>"; };
+		DE98F2B9E8C59FD4D6CC63CD /* Pods_SimpleTodo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SimpleTodo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F1B1501F1AC69F88C7CE3475 /* Pods-SimpleTodoUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SimpleTodoUITests.debug.xcconfig"; path = "Target Support Files/Pods-SimpleTodoUITests/Pods-SimpleTodoUITests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -127,7 +128,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A158D5E80784B0E1DF4D88F3 /* Pods_SimpleTodo.framework in Frameworks */,
+				0F1A96E6028675210A99638A /* Pods_SimpleTodo.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -135,7 +136,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2F411BB7C5CA10F16F30DB70 /* Pods_SimpleTodoTests.framework in Frameworks */,
+				CAA436F43B161E89CD9CAFFC /* Pods_SimpleTodoTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -143,7 +144,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7E2F682D64AEA0BB4F60F4DB /* Pods_SimpleTodoUITests.framework in Frameworks */,
+				3A741B3BD527B0F3EC505A49 /* Pods_SimpleTodoUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -185,9 +186,9 @@
 				119F40291FF0D39C00C90E4E /* SimpleTodoTests */,
 				11E1EA4720074A8D00B2B198 /* SimpleTodoUITests */,
 				119F40131FF0D39C00C90E4E /* Products */,
-				209AE4AF5234AB2831315B7A /* Pods */,
 				11DFC98D2003635000E87C64 /* JsonServer */,
-				9F0A80BCA0DDE1154E9C084F /* Frameworks */,
+				5FDEAB1E834769911243961D /* Pods */,
+				4DF60226E1B2C79472D9C228 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -349,27 +350,27 @@
 			path = Networking;
 			sourceTree = "<group>";
 		};
-		209AE4AF5234AB2831315B7A /* Pods */ = {
+		4DF60226E1B2C79472D9C228 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				03A87A4254A3E3F8222DAD27 /* Pods-SimpleTodo.debug.xcconfig */,
-				5FE334C52880C7499B364ED3 /* Pods-SimpleTodo.release.xcconfig */,
-				2DEF81330C42A304FD27985F /* Pods-SimpleTodoTests.debug.xcconfig */,
-				FDB175609CB74A54C9B4B6C8 /* Pods-SimpleTodoTests.release.xcconfig */,
-				04DA429525F3EAE9F8D59CC7 /* Pods-SimpleTodoUITests.debug.xcconfig */,
-				8EA8D53869F4CC2D356537A2 /* Pods-SimpleTodoUITests.release.xcconfig */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
-		9F0A80BCA0DDE1154E9C084F /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				F3E2D6006079ED97998EE816 /* Pods_SimpleTodo.framework */,
-				29B3ECD31D0B504B4B08058C /* Pods_SimpleTodoTests.framework */,
-				9D8DD18914493C00BB79F639 /* Pods_SimpleTodoUITests.framework */,
+				DE98F2B9E8C59FD4D6CC63CD /* Pods_SimpleTodo.framework */,
+				3530B1E28589EFF462512DDC /* Pods_SimpleTodoTests.framework */,
+				8F938B044FF9A7D644255BEE /* Pods_SimpleTodoUITests.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		5FDEAB1E834769911243961D /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				2D922F34B3FC69FD969A72D8 /* Pods-SimpleTodo.debug.xcconfig */,
+				DAA100A8727EF81D7C6C0FCB /* Pods-SimpleTodo.release.xcconfig */,
+				A45141CFC61C3207D029A09F /* Pods-SimpleTodoTests.debug.xcconfig */,
+				7749C8F094C9FC7D59F2F03A /* Pods-SimpleTodoTests.release.xcconfig */,
+				F1B1501F1AC69F88C7CE3475 /* Pods-SimpleTodoUITests.debug.xcconfig */,
+				3E0DCD257F8AC736F7F95623 /* Pods-SimpleTodoUITests.release.xcconfig */,
+			);
+			path = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -379,12 +380,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 119F402F1FF0D39C00C90E4E /* Build configuration list for PBXNativeTarget "SimpleTodo" */;
 			buildPhases = (
-				D24D50A983B87D1038F341FC /* [CP] Check Pods Manifest.lock */,
+				361280D4F9B35E51007BFF76 /* [CP] Check Pods Manifest.lock */,
 				119F400E1FF0D39C00C90E4E /* Sources */,
 				119F400F1FF0D39C00C90E4E /* Frameworks */,
 				119F40101FF0D39C00C90E4E /* Resources */,
-				A56888B938E74B831B9A382E /* [CP] Embed Pods Frameworks */,
-				265F11EF061C14496515A112 /* [CP] Copy Pods Resources */,
+				638F0046BFC60592250DEC0E /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -399,12 +399,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 119F40321FF0D39C00C90E4E /* Build configuration list for PBXNativeTarget "SimpleTodoTests" */;
 			buildPhases = (
-				73693074644F68CF81323C9C /* [CP] Check Pods Manifest.lock */,
+				F5BF8B3737733D60F52707C9 /* [CP] Check Pods Manifest.lock */,
 				119F40221FF0D39C00C90E4E /* Sources */,
 				119F40231FF0D39C00C90E4E /* Frameworks */,
 				119F40241FF0D39C00C90E4E /* Resources */,
-				ED4BE224290B463535A18721 /* [CP] Embed Pods Frameworks */,
-				F96C75AC31525287BCD2E272 /* [CP] Copy Pods Resources */,
+				37557B8E7C6B0CB97420AB28 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -420,13 +419,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 11E1EA4F20074A8E00B2B198 /* Build configuration list for PBXNativeTarget "SimpleTodoUITests" */;
 			buildPhases = (
-				8D9C27AAE9244680E7D55756 /* [CP] Check Pods Manifest.lock */,
+				6874594334350279EA5B502C /* [CP] Check Pods Manifest.lock */,
 				11E1EA4220074A8D00B2B198 /* Sources */,
 				11E1EA4320074A8D00B2B198 /* Frameworks */,
 				11E1EA4420074A8D00B2B198 /* Resources */,
-				98C53D042CC9F87DB1799E96 /* [CP] Embed Pods Frameworks */,
-				8E10FBC7DCF8919245405D7B /* [CP] Copy Pods Resources */,
-				11336156201DE6A7001FAEA3 /* CopyFiles */,
+				11336156201DE6A7001FAEA3 /* Copy Files */,
+				47DA012183DD5F014CD2AE33 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -515,97 +513,37 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		265F11EF061C14496515A112 /* [CP] Copy Pods Resources */ = {
+		361280D4F9B35E51007BFF76 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SimpleTodo/Pods-SimpleTodo-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		73693074644F68CF81323C9C /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
+			inputFileListPaths = (
 			);
 			inputPaths = (
 				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
 				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-SimpleTodoTests-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-SimpleTodo-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		8D9C27AAE9244680E7D55756 /* [CP] Check Pods Manifest.lock */ = {
+		37557B8E7C6B0CB97420AB28 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-SimpleTodoUITests-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		8E10FBC7DCF8919245405D7B /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
+			inputFileListPaths = (
 			);
 			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SimpleTodoUITests/Pods-SimpleTodoUITests-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		98C53D042CC9F87DB1799E96 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-SimpleTodoUITests/Pods-SimpleTodoUITests-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/OHHTTPStubs/OHHTTPStubs.framework",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/OHHTTPStubs.framework",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SimpleTodoUITests/Pods-SimpleTodoUITests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		A56888B938E74B831B9A382E /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-SimpleTodo/Pods-SimpleTodo-frameworks.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-SimpleTodoTests/Pods-SimpleTodoTests-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/Moya/Moya.framework",
 				"${BUILT_PRODUCTS_DIR}/OHHTTPStubs/OHHTTPStubs.framework",
@@ -613,6 +551,8 @@
 				"${BUILT_PRODUCTS_DIR}/SCLAlertView/SCLAlertView.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Moya.framework",
@@ -622,58 +562,111 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SimpleTodo/Pods-SimpleTodo-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SimpleTodoTests/Pods-SimpleTodoTests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		D24D50A983B87D1038F341FC /* [CP] Check Pods Manifest.lock */ = {
+		47DA012183DD5F014CD2AE33 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SimpleTodoUITests/Pods-SimpleTodoUITests-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/Moya/Moya.framework",
+				"${BUILT_PRODUCTS_DIR}/OHHTTPStubs/OHHTTPStubs.framework",
+				"${BUILT_PRODUCTS_DIR}/Result/Result.framework",
+				"${BUILT_PRODUCTS_DIR}/SCLAlertView/SCLAlertView.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Moya.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/OHHTTPStubs.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Result.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SCLAlertView.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SimpleTodoUITests/Pods-SimpleTodoUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		638F0046BFC60592250DEC0E /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SimpleTodo/Pods-SimpleTodo-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/Moya/Moya.framework",
+				"${BUILT_PRODUCTS_DIR}/OHHTTPStubs/OHHTTPStubs.framework",
+				"${BUILT_PRODUCTS_DIR}/Result/Result.framework",
+				"${BUILT_PRODUCTS_DIR}/SCLAlertView/SCLAlertView.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Moya.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/OHHTTPStubs.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Result.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SCLAlertView.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SimpleTodo/Pods-SimpleTodo-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		6874594334350279EA5B502C /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
 			);
 			inputPaths = (
 				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
 				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-SimpleTodo-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-SimpleTodoUITests-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		ED4BE224290B463535A18721 /* [CP] Embed Pods Frameworks */ = {
+		F5BF8B3737733D60F52707C9 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
-			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-SimpleTodoTests/Pods-SimpleTodoTests-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/OHHTTPStubs/OHHTTPStubs.framework",
+			inputFileListPaths = (
 			);
-			name = "[CP] Embed Pods Frameworks";
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
 			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/OHHTTPStubs.framework",
+				"$(DERIVED_FILE_DIR)/Pods-SimpleTodoTests-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SimpleTodoTests/Pods-SimpleTodoTests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		F96C75AC31525287BCD2E272 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SimpleTodoTests/Pods-SimpleTodoTests-resources.sh\"\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -868,11 +861,11 @@
 		};
 		119F40301FF0D39C00C90E4E /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 03A87A4254A3E3F8222DAD27 /* Pods-SimpleTodo.debug.xcconfig */;
+			baseConfigurationReference = 2D922F34B3FC69FD969A72D8 /* Pods-SimpleTodo.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = URY6ZXAK69;
+				DEVELOPMENT_TEAM = H84LNUYL4K;
 				INFOPLIST_FILE = SimpleTodo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.alexk.SimpleTodo;
@@ -884,11 +877,11 @@
 		};
 		119F40311FF0D39C00C90E4E /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5FE334C52880C7499B364ED3 /* Pods-SimpleTodo.release.xcconfig */;
+			baseConfigurationReference = DAA100A8727EF81D7C6C0FCB /* Pods-SimpleTodo.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = URY6ZXAK69;
+				DEVELOPMENT_TEAM = H84LNUYL4K;
 				INFOPLIST_FILE = SimpleTodo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.alexk.SimpleTodo;
@@ -900,7 +893,7 @@
 		};
 		119F40331FF0D39C00C90E4E /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 2DEF81330C42A304FD27985F /* Pods-SimpleTodoTests.debug.xcconfig */;
+			baseConfigurationReference = A45141CFC61C3207D029A09F /* Pods-SimpleTodoTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
@@ -917,7 +910,7 @@
 		};
 		119F40341FF0D39C00C90E4E /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = FDB175609CB74A54C9B4B6C8 /* Pods-SimpleTodoTests.release.xcconfig */;
+			baseConfigurationReference = 7749C8F094C9FC7D59F2F03A /* Pods-SimpleTodoTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
@@ -934,10 +927,10 @@
 		};
 		11E1EA4D20074A8E00B2B198 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 04DA429525F3EAE9F8D59CC7 /* Pods-SimpleTodoUITests.debug.xcconfig */;
+			baseConfigurationReference = F1B1501F1AC69F88C7CE3475 /* Pods-SimpleTodoUITests.debug.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = URY6ZXAK69;
+				DEVELOPMENT_TEAM = H84LNUYL4K;
 				INFOPLIST_FILE = SimpleTodoUITests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -951,10 +944,10 @@
 		};
 		11E1EA4E20074A8E00B2B198 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 8EA8D53869F4CC2D356537A2 /* Pods-SimpleTodoUITests.release.xcconfig */;
+			baseConfigurationReference = 3E0DCD257F8AC736F7F95623 /* Pods-SimpleTodoUITests.release.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = URY6ZXAK69;
+				DEVELOPMENT_TEAM = H84LNUYL4K;
 				INFOPLIST_FILE = SimpleTodoUITests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
