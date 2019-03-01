@@ -15,8 +15,8 @@ class TodosViewControllerTest: XCTestCase {
     var mockVM: MockTodosViewModel!
     override func setUp() {
         super.setUp()
-        let sb = UIStoryboard(name: "Main", bundle: nil)
-        subject = sb.instantiateViewController(withIdentifier: "TodosViewController") as! TodosViewController
+        
+        subject = Storyboard.main.viewController(of: TodosViewController.self)
         mockVM = MockTodosViewModel()
         subject.viewModel = mockVM
         _ = subject.view

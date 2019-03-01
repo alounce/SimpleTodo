@@ -21,6 +21,7 @@ struct TodoModel: Codable {
     var priority: Int
     var category: String
     var completed: Bool
+    var isNew: Bool { return id < 0 }
     
     init() {
         self.id = -1

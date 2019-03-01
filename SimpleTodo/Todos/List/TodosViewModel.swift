@@ -8,7 +8,6 @@
 
 import Foundation
 
-
 protocol TodosViewModelProtocol {
     func numberOfGroups()->Int
     func numberOfItems(inGroup groupIndex: Int)->Int

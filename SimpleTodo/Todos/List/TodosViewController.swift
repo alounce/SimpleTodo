@@ -19,7 +19,7 @@ enum ModificationType {
 class TodosViewController: UIViewController {
     
     @IBOutlet weak internal var tableView: UITableView!
-    var viewModel: TodosViewModelProtocol = TodosViewModel()
+    var viewModel: TodosViewModelProtocol! = TodosViewModel()
     
     private let refreshControl = UIRefreshControl()
     
@@ -44,19 +44,21 @@ class TodosViewController: UIViewController {
         }
     }
     
-    func addNew() {
-        let newTodo = Todo(withTitle: "")
-        edit(todo: newTodo, modificationType: .insert)
+    private func buildEditor(for todo: Todo) -> TodoEditorViewController {
+        let editor = Storyboard.main.viewController(of: TodoEditorViewController.self)
+        let type = todo.isNew ? ModificationType.insert : ModificationType.edit
+        editor.configure(withDelegate: self, todo: todo, modificationType: type)
+        return editor
     }
     
-    func edit(todo: Todo, modificationType: ModificationType = .edit) {
-        let sb = UIStoryboard(name: "Main", bundle: nil)
-        let editorVC = sb.instantiateViewController(withIdentifier: "TodoEditorViewController") as! TodoEditorViewController
-        editorVC.configure(withDelegate: self,
-                           todo: todo,
-                           modificationType: modificationType)
-        let navVC = UINavigationController(rootViewController: editorVC)
-        present(navVC, animated: true, completion: nil)
+    func addNew() {
+        let newTodo = Todo(withTitle: "")
+        edit(newTodo)
+    }
+    
+    func edit(_ todo: Todo) {
+        let editor = buildEditor(for: todo).wrapIntoNavigation()
+        present(editor, animated: true, completion: nil)
     }
     
     func delete(_ todo: Todo) {
@@ -130,9 +132,8 @@ extension TodosViewController: UITableViewDataSource {
 
 extension TodosViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if let todo = viewModel.item(byIndexPath: indexPath) {
-            edit(todo: todo)
-        }
+        let todo = viewModel.item(byIndexPath: indexPath)!
+        edit(todo)
     }
 }
 

@@ -14,7 +14,7 @@ protocol TodoEditorViewControllerDelegate: NSObjectProtocol {
 
 class TodoEditorViewController: UIViewController {
     
-    private(set) var todo: Todo!
+    private(set) var viewModel: TodoEditorViewModelProtocol!
     private(set)var modificationType: ModificationType!
     weak var delegate: TodoEditorViewControllerDelegate?
     
@@ -40,7 +40,7 @@ class TodoEditorViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        syncData()
+        syncUI()
         self.titleText.becomeFirstResponder()
     }
     
@@ -48,28 +48,29 @@ class TodoEditorViewController: UIViewController {
                    todo: Todo,
                    modificationType: ModificationType = .edit) {
         self.delegate = delegate
-        self.todo = todo
+        self.viewModel = TodoEditorViewModel(with: todo)
         self.modificationType = modificationType
     }
     
-    func syncData(forward: Bool = true) {
-        if forward {
-            titleText?.text = todo.title
+    func syncUI(toUI: Bool = true) {
+        if toUI {
+            title = viewModel.title
+            titleText?.text = viewModel.todo.title
             /* BREAKING ATTEMPT #5
              imagine we forgot to sync detail for an editor
              
              Add couple of tests have to fail!
              */
-            detailsText.text = todo.details
+            detailsText.text = viewModel.todo.details
             //------------------------------------------------------------------
-            categoryText?.text = todo.category
-            prioritySegment?.selectedSegmentIndex = todo.priority - 1
-            title = todo.id < 0 ? "New" : "#\(todo.id)"
+            categoryText?.text = viewModel.todo.category
+            prioritySegment?.selectedSegmentIndex = viewModel.todo.priority - 1
+            title = viewModel.todo.id < 0 ? "New" : "#\(viewModel.todo.id)"
         } else {
-            if let value = titleText?.text { todo.title = value }
-            if let value = detailsText?.text { todo.details = value }
-            if let value = categoryText?.text { todo.category = value }
-            todo.priority = prioritySegment.selectedSegmentIndex + 1
+            if let value = titleText?.text { viewModel.todo.title = value }
+            if let value = detailsText?.text { viewModel.todo.details = value }
+            if let value = categoryText?.text { viewModel.todo.category = value }
+            viewModel.todo.priority = prioritySegment.selectedSegmentIndex + 1
         }
         
     }
@@ -82,22 +83,21 @@ class TodoEditorViewController: UIViewController {
      */
     @IBAction func onDone(_ sender: Any) {
         self.setEditing(false, animated: true)
-        syncData(forward: false)
-        guard todo.isDirty else {
+        syncUI(toUI: false)
+        guard viewModel.todo.isDirty else {
             onCancel(sender)
             return
         }
-        todo.update { [weak self] todo, error in
-            guard error == nil  else {
-                print("Cannot save todo: \(String(describing: error?.localizedDescription))")
+        viewModel.update { [weak self] result in
+            switch result {
+            case .failure(let error):
+                print("Cannot save todo: \(error)")
                 return
-            }
-            if let editor = self,
-                let delegate = editor.delegate,
-                let todo = editor.todo {
-                
+            case .success(let todo):
+                guard let editor = self, let delegate = editor.delegate  else { return }
+                editor.viewModel.todo = todo
                 delegate.editor(editor, didChange: todo)
-                self?.dismiss(animated: true, completion: nil)
+                editor.dismiss(animated: true, completion: nil)
             }
         }
     }

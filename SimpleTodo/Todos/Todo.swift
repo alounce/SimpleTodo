@@ -68,6 +68,8 @@ class Todo {
         }
     }
     
+    var isNew: Bool { return model.isNew }
+    
     // MARK: - Initializers
     
     init(model: TodoModel) {

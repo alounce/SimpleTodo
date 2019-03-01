@@ -38,6 +38,8 @@
 		11F385B01FFE51B100F43681 /* TodoTableViewCellTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11F385AF1FFE51B100F43681 /* TodoTableViewCellTest.swift */; };
 		11F385B31FFE71FC00F43681 /* TodoEditorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11F385B21FFE71FC00F43681 /* TodoEditorViewController.swift */; };
 		11FC664B2004FF0400594264 /* WebAPIClientTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11FC664A2004FF0400594264 /* WebAPIClientTest.swift */; };
+		373EA9E5222825130048E9F1 /* TodoEditorViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11FC664C20051A9F00594264 /* TodoEditorViewModel.swift */; };
+		373EA9E922295F4A0048E9F1 /* Storyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 373EA9E822295F4A0048E9F1 /* Storyboard.swift */; };
 		3A741B3BD527B0F3EC505A49 /* Pods_SimpleTodoUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F938B044FF9A7D644255BEE /* Pods_SimpleTodoUITests.framework */; };
 		CAA436F43B161E89CD9CAFFC /* Pods_SimpleTodoTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3530B1E28589EFF462512DDC /* Pods_SimpleTodoTests.framework */; };
 /* End PBXBuildFile section */
@@ -114,6 +116,7 @@
 		11FC664C20051A9F00594264 /* TodoEditorViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoEditorViewModel.swift; sourceTree = "<group>"; };
 		2D922F34B3FC69FD969A72D8 /* Pods-SimpleTodo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SimpleTodo.debug.xcconfig"; path = "Target Support Files/Pods-SimpleTodo/Pods-SimpleTodo.debug.xcconfig"; sourceTree = "<group>"; };
 		3530B1E28589EFF462512DDC /* Pods_SimpleTodoTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SimpleTodoTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		373EA9E822295F4A0048E9F1 /* Storyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storyboard.swift; sourceTree = "<group>"; };
 		3E0DCD257F8AC736F7F95623 /* Pods-SimpleTodoUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SimpleTodoUITests.release.xcconfig"; path = "Target Support Files/Pods-SimpleTodoUITests/Pods-SimpleTodoUITests.release.xcconfig"; sourceTree = "<group>"; };
 		7749C8F094C9FC7D59F2F03A /* Pods-SimpleTodoTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SimpleTodoTests.release.xcconfig"; path = "Target Support Files/Pods-SimpleTodoTests/Pods-SimpleTodoTests.release.xcconfig"; sourceTree = "<group>"; };
 		8F938B044FF9A7D644255BEE /* Pods_SimpleTodoUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SimpleTodoUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -162,6 +165,7 @@
 		1116F7AA1FFBDFC500B760F1 /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				373EA9E822295F4A0048E9F1 /* Storyboard.swift */,
 				119F40191FF0D39C00C90E4E /* Main.storyboard */,
 				119F401C1FF0D39C00C90E4E /* Assets.xcassets */,
 				119F401E1FF0D39C00C90E4E /* LaunchScreen.storyboard */,
@@ -443,20 +447,23 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0920;
-				LastUpgradeCheck = 0920;
+				LastUpgradeCheck = 1010;
 				ORGANIZATIONNAME = "Alexander Karpenko";
 				TargetAttributes = {
 					119F40111FF0D39C00C90E4E = {
 						CreatedOnToolsVersion = 9.2;
+						LastSwiftMigration = 1010;
 						ProvisioningStyle = Automatic;
 					};
 					119F40251FF0D39C00C90E4E = {
 						CreatedOnToolsVersion = 9.2;
+						LastSwiftMigration = 1010;
 						ProvisioningStyle = Automatic;
 						TestTargetID = 119F40111FF0D39C00C90E4E;
 					};
 					11E1EA4520074A8D00B2B198 = {
 						CreatedOnToolsVersion = 9.2;
+						LastSwiftMigration = 1010;
 						ProvisioningStyle = Automatic;
 						TestTargetID = 119F40111FF0D39C00C90E4E;
 					};
@@ -677,7 +684,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				11A6E134201F07CE0047C307 /* TestEnvironmentStubInfo.swift in Sources */,
+				373EA9E5222825130048E9F1 /* TodoEditorViewModel.swift in Sources */,
 				119F403E1FF125DF00C90E4E /* Todo.swift in Sources */,
+				373EA9E922295F4A0048E9F1 /* Storyboard.swift in Sources */,
 				119F40441FF14A9B00C90E4E /* TodosViewModel.swift in Sources */,
 				11A6E137201F1E6C0047C307 /* OHHTTPStubsHelper.swift in Sources */,
 				119F40361FF0DCDA00C90E4E /* WebAPIClient.swift in Sources */,
@@ -766,6 +775,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -773,6 +783,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
@@ -823,6 +834,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -830,6 +842,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;

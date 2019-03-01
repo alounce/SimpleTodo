@@ -32,8 +32,7 @@ class TodoEditorViewControllerTest: XCTestCase {
     override func setUp() {
         super.setUp()
         
-        let sb = UIStoryboard(name: "Main", bundle: nil)
-        editor = sb.instantiateViewController(withIdentifier: "TodoEditorViewController") as! TodoEditorViewController
+        editor = Storyboard.main.viewController(of: TodoEditorViewController.self)
         parent = MockTodosViewController()
         let todoJSON = [
             "id": 2,
@@ -79,7 +78,7 @@ class TodoEditorViewControllerTest: XCTestCase {
         _ = editor.view
         
         XCTAssert(editor.delegate === parent)
-        XCTAssertEqual(editor.todo, todo)
+        XCTAssertEqual(editor.viewModel.todo, todo)
         XCTAssertEqual(editor.modificationType, ModificationType.edit)
     }
     
@@ -93,7 +92,7 @@ class TodoEditorViewControllerTest: XCTestCase {
         XCTAssertEqual(editor.title, "#\(todo.id)")
         
         editor.configure(withDelegate: parent!, todo: Todo(withTitle: "My new todo"), modificationType: .insert)
-        editor.syncData()
+        editor.syncUI()
         XCTAssertEqual(editor.title, "New")
     }
     
@@ -109,7 +108,7 @@ class TodoEditorViewControllerTest: XCTestCase {
         editor.categoryText?.text = expectedCategory
         editor.prioritySegment?.selectedSegmentIndex = expectedPriority - 1
         
-        editor.syncData(forward: false)
+        editor.syncUI(toUI: false)
         
         XCTAssertEqual(todo.title, expectedTitle)
         XCTAssertEqual(todo.details, expectedDetails)

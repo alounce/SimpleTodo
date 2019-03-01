@@ -18,8 +18,8 @@ class TodoTableViewCellTest: XCTestCase {
     
     override func setUp() {
         super.setUp()
-        let sb = UIStoryboard(name: "Main", bundle: nil)
-        todosVC = sb.instantiateViewController(withIdentifier: "TodosViewController") as! TodosViewController
+        
+        todosVC = Storyboard.main.viewController(of: TodosViewController.self)
         mockVM = MockTodosViewModel()
         todosVC.viewModel = mockVM
         _ = todosVC.view
