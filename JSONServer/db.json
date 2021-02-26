@@ -44,12 +44,12 @@
       "completed": true
     },
     {
-      "details": "left moving light is not working",
       "title": "Get car to service",
       "id": 4,
+      "details": "left moving light is not working",
       "priority": 2,
       "category": "car",
-      "completed": false
+      "completed": true
     },
     {
       "details": "It will be a challenge, yeah",
