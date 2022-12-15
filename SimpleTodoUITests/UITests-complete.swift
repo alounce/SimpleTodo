@@ -8,9 +8,11 @@
 
 import XCTest
 class UITestsComplete: XCTestCase {
-    
+
+    static let newTodoId: Int = 8
+
     let newTodoJSON = [
-        "id": 8,
+        "id": newTodoId,
         "title": "Do something really useful!",
         "details": "And amazingly interesting!!!",
         "priority": 3,
@@ -19,7 +21,7 @@ class UITestsComplete: XCTestCase {
         ] as [String: AnyObject]
     
     let editedTodoJSON = [
-        "id": 8,
+        "id": newTodoId,
         "title": "Do something really useful! NOW",
         "details": "And amazingly interesting!!! And Exciting!",
         "priority": 1,
@@ -41,13 +43,13 @@ class UITestsComplete: XCTestCase {
         
         //----- (C)reate -------------------------------------------------------
         let createStub = TestEnvironmentStubInfo( method: .create,
-                                                  path: "/api/todos",
+                                                  path: "/alounce/demo/todos",
                                                   statusCode: 201,
                                                   json: newTodoJSON)
         app.launchEnvironment[createStub.key] = createStub.value
         //----- (R)ead ---------------------------------------------------------
         if let readStub = TestEnvironmentStubInfo( method: .read,
-                                                    path: "/api/todos",
+                                                    path: "/alounce/demo/todos",
                                                     statusCode: 200,
                                                     fileName: "getTodos",
                                                     bundle: bundle) {
@@ -55,20 +57,20 @@ class UITestsComplete: XCTestCase {
         }
         //----- (U)pdate -------------------------------------------------------
         let updateStub = TestEnvironmentStubInfo( method: .update,
-                                                 path: "/api/todos/8",
+                                                 path: "/alounce/demo/todos/8",
                                                  statusCode: 200,
                                                  json: editedTodoJSON)
         app.launchEnvironment[updateStub.key] = updateStub.value
         
         //----- (D)elete -------------------------------------------------------
         let deleteStub = TestEnvironmentStubInfo( method: .delete,
-                                                 path: "/api/todos/8",
+                                                 path: "/alounce/demo/todos/8",
                                                  statusCode: 204,
                                                  json: [:])
         app.launchEnvironment[deleteStub.key] = deleteStub.value
         //----------------------------------------------------------------------
         let deleteErrorStub = TestEnvironmentStubInfo( method: .delete,
-                                                  path: "/api/todos/4",
+                                                  path: "/alounce/demo/todos/4",
                                                   statusCode: 404,
                                                   json: [:])
         app.launchEnvironment[deleteErrorStub.key] = deleteErrorStub.value

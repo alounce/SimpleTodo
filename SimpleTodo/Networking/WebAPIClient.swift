@@ -19,22 +19,25 @@ enum WebAPIClient {
 
 extension WebAPIClient: TargetType {
 
+    private static let baseURLString = "https://my-json-server.typicode.com"
+    private static let localBaseURLString = "http://localhost:3000"
+
     var baseURL: URL {
-        return URL(string: "http://localhost:3000")!
+        return URL(string: WebAPIClient.baseURLString)!
     }
     
     var path: String {
         switch self {
         case .getTodos:
-            return "/api/todos"
+            return "/alounce/demo/todos"
         case .getTodo(let todoId):
-            return "/api/todos/\(todoId)"
+            return "/alounce/demo/todos/\(todoId)"
         case .addTodo:
-            return "/api/todos"
+            return "/alounce/demo/todos"
         case .updateTodo(let todo):
-            return "/api/todos/\(todo.id)"
+            return "/alounce/demo/todos/\(todo.id)"
         case .deleteTodo(let todoId):
-            return "/api/todos/\(todoId)"
+            return "/alounce/demo/todos/\(todoId)"
         }
     }
     

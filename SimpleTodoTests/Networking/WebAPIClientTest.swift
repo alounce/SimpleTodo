@@ -28,7 +28,7 @@ class WebAPIClientTest: XCTestCase {
         let api: WebAPIClient = .getTodo(todoId:3)
         let expected = api.parameterEncoding
         XCTAssert(type(of: expected) == JSONEncoding.self)
-        XCTAssertEqual(api.path, "/api/todos/3")
+        XCTAssertEqual(api.path, "/alounce/demo/todos/3")
         XCTAssertNotNil(api.sampleData)
         XCTAssertEqual(api.method, .get)
         

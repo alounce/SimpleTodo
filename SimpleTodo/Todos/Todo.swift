@@ -116,7 +116,7 @@ class Todo {
     func update(completion: @escaping (Todo, Error?)->Void) {
         let provider = MoyaProvider<WebAPIClient>()
         let route = id < 0 ? WebAPIClient.addTodo(todo: self.model) : WebAPIClient.updateTodo(todo: self.model)
-        provider.request(route) { [unowned self] res in
+            provider.request(route) { [unowned self] res in
             
             switch res {
             case .success(let response):
