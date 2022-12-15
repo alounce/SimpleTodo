@@ -6,7 +6,7 @@ xcode_scheme: SimpleTodo
 xcode_destination: platform=iOS Simulator,OS=11.3,name=iPhone X
 before_install:
 - gem install cocoapods
-- pod install
+- bundle exec pod install
 branches:
   only:
   - develop
