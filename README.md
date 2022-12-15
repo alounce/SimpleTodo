@@ -1,6 +1,13 @@
 # SimpleTodo
 Simple iOS Swift project for playing with Unit and UI tests. Nothing fancy with UI yet
 
+## Build Statuses
+
+### CircleCI
+[![alounce](https://circleci.com/gh/alounce/SimpleTodo.svg?style=svg)]([<LINK>](https://circleci.com/gh/alounce/SimpleTodo))
+
+
+### Travis
 [![Build Status](https://travis-ci.org/alounce/SimpleTodo.svg?branch=master)](https://travis-ci.org/alounce/SimpleTodo)
 
 ## Server
