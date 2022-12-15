@@ -223,7 +223,8 @@ class UITestsComplete: XCTestCase {
 
         // 4. Mark Todo As Done! ===============================================
         XCTContext.runActivity(named: "Mark Todo As Done. Happy Path") { _ in
-            app.tables.switches["Do something really useful! NOW, CHALLENGING and urgent"].tap()
+            let index = UITestsComplete.newTodoId - 1
+            app.tables.switches.element(boundBy: index).tap()
         }
         // 4. Mark Todo As Done! ===============================================
 
